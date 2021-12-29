@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golang-app
+  labels:
+    app: go
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go
+  template:
+    metadata:
+      labels:
+        app: go
+    spec:
+      containers:
+      - name: golang-app
+        image: ntaranpreet26311/argo-v1:latest
+        ports:
+        - containerPort: 3000
