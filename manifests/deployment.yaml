@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: golang-app
-        image: taranpreet26311/argo-v1:latest
+        image: taranpreet26311/argo-v2:latest
         ports:
         - containerPort: 3000
