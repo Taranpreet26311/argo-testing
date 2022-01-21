@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: golang-app
+  name: golang-appz
 spec:
   selector:
     app: go
