@@ -9,56 +9,68 @@ spec:
     server: https://kubernetes.default.svc # The Kubernetes API server URL
   project: default # Replace with the ArgoCD project name if needed
   source:
-    repoURL: git@github.com:Taranpreet26311/argo-testing.git
+  - repoURL: git@github.com:Taranpreet26311/argo-testing.git
     targetRevision: HEAD # or specify a commit, tag, or branch
     path: istio-system/istio-base # Path to the directory containing the Helm chart
     helm:
       valueFiles:
         - values.yaml # Path to your values.yaml file
-  syncPolicy:
-    automated:
-      prune: true # Automatically remove resources not in Git repository
-
----
-
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: istiod
-  namespace: argocd
-spec:
-  destination:
-    namespace: istio-system
-    server: https://kubernetes.default.svc # The Kubernetes API server URL
-  project: default # Replace with the ArgoCD project name if needed
-  source:
-    repoURL: git@github.com:Taranpreet26311/argo-testing.git
+  - repoURL: git@github.com:Taranpreet26311/argo-testing.git
     targetRevision: HEAD # or specify a commit, tag, or branch
     path: istio-system/istiod # Path to the directory containing the Helm chart
     helm:
       valueFiles:
         - values.yaml # Path to your values.yaml file
-  syncPolicy:
-    automated:
-      prune: true # Automatically remove resources not in Git repository
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: istio-application
-  namespace: argocd
-spec:
-  destination:
-    namespace: istio-system
-    server: https://kubernetes.default.svc # The Kubernetes API server URL
-  project: default # Replace with the ArgoCD project name if needed
-  source:
-    repoURL: git@github.com:Taranpreet26311/argo-testing.git
+  - repoURL: git@github.com:Taranpreet26311/argo-testing.git
     targetRevision: HEAD # or specify a commit, tag, or branch
     path: istio-system/istio-ingress-internal # Path to the directory containing the Helm chart
     helm:
       valueFiles:
-        - values.yaml # Path to your values.yaml file
+        - values.yaml
   syncPolicy:
     automated:
       prune: true # Automatically remove resources not in Git repository
+
+---
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: istiod
+#   namespace: argocd
+# spec:
+#   destination:
+#     namespace: istio-system
+#     server: https://kubernetes.default.svc # The Kubernetes API server URL
+#   project: default # Replace with the ArgoCD project name if needed
+#   source:
+#     repoURL: git@github.com:Taranpreet26311/argo-testing.git
+#     targetRevision: HEAD # or specify a commit, tag, or branch
+#     path: istio-system/istiod # Path to the directory containing the Helm chart
+#     helm:
+#       valueFiles:
+#         - values.yaml # Path to your values.yaml file
+#   syncPolicy:
+#     automated:
+#       prune: true # Automatically remove resources not in Git repository
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: istio-application
+#   namespace: argocd
+# spec:
+#   destination:
+#     namespace: istio-system
+#     server: https://kubernetes.default.svc # The Kubernetes API server URL
+#   project: default # Replace with the ArgoCD project name if needed
+#   source:
+#     repoURL: git@github.com:Taranpreet26311/argo-testing.git
+#     targetRevision: HEAD # or specify a commit, tag, or branch
+#     path: istio-system/istio-ingress-internal # Path to the directory containing the Helm chart
+#     helm:
+#       valueFiles:
+#         - values.yaml # Path to your values.yaml file
+#   syncPolicy:
+#     automated:
+#       prune: true # Automatically remove resources not in Git repository
