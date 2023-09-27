@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: git@github.com:Taranpreet26311/argo-testing.git
     targetRevision: HEAD
-    path: manifests
+    path: goapp
   destination:
     server: https://kubernetes.default.svc
     namespace: testns
