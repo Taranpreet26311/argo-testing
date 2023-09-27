@@ -1,0 +1,12 @@
+global:
+  istioNamespace: istio-system
+  istiod:
+    enableAnalysis: false
+  configValidation: true
+  externalIstiod: false
+  remotePilotAddress: ""
+  platform: "gcp"
+base:
+  enableCRDTemplates: false
+  enableIstioConfigCRDs: true
+defaultRevision: "default"
