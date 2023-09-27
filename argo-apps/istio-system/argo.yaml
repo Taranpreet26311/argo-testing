@@ -8,7 +8,7 @@ spec:
     namespace: istio-system
     server: https://kubernetes.default.svc # The Kubernetes API server URL
   project: default # Replace with the ArgoCD project name if needed
-  source:
+  sources:
     - repoURL: git@github.com:Taranpreet26311/argo-testing.git
       targetRevision: HEAD # or specify a commit, tag, or branch
       path: istio-system/istio-base # Path to the directory containing the Helm chart
